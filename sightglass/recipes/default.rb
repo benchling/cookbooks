@@ -15,5 +15,5 @@ include_recipe 'elasticsearch::aws'
 
 # Half of memory towards ES heap.
 env 'ES_HEAP_SIZE' do
-    value node.memory.total.to_i / 2
+    value (node.memory.total.to_i / 2).to_s
 end

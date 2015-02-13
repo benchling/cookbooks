@@ -1,10 +1,10 @@
 name             'sightglass'
-maintainer       'The Authors'
-maintainer_email 'you@example.com'
+maintainer       'Joshua Ma'
+maintainer_email 'josh@benchling.com'
 license          'all_rights'
 description      'Installs/Configures sightglass'
 long_description 'Installs/Configures sightglass'
 version          '0.1.0'
 
 depends 'java'
-depends 'elasticsearch'
+depends 'elasticsearch', '~> 0.3.13'

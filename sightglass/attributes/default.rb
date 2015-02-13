@@ -6,3 +6,7 @@ default.elasticsearch['discovery']['ec2']['groups'] = 'ElasticSearchSG'
 
 default.elasticsearch['cluster']['name'] = 'es.' + node['opsworks']['stack']['name']
 default.elasticsearch['node']['name'] = node['opsworks']['instance']['hostname']
+
+# elasticsearch recipe already sets memory to 60%, but we do this explicitly anyways.
+allocated_memory = "#{(node.memory.total.to_i * 0.6 ).floor / 1024}m"
+default.elasticsearch['allocated_memory'] = allocated_memory

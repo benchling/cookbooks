@@ -11,7 +11,7 @@ default.elasticsearch['cluster']['name'] = 'es.' + node['opsworks']['stack']['na
 default.elasticsearch['node']['name'] = node['opsworks']['instance']['hostname']
 
 # Storage.
-default.elasticsearch['data']['devices']['/dev/sdf'] = {
+default.elasticsearch['data']['devices']['/dev/sdb'] = {
     file_system: 'ext4',
     mount_options: 'rw,user',
     mount_path: '/usr/local/var/data/elasticsearch/disk1',

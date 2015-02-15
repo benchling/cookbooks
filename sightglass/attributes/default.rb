@@ -11,14 +11,14 @@ default.elasticsearch['cluster']['name'] = 'es.' + node['opsworks']['stack']['na
 default.elasticsearch['node']['name'] = node['opsworks']['instance']['hostname']
 
 # Storage.
-default.elasticsearch['data']['devices']['/dev/sdb'] = {
+default.elasticsearch['data']['devices']['/dev/sdf'] = {
     file_system: 'ext4',
     mount_options: 'rw,user',
     mount_path: '/usr/local/var/data/elasticsearch/disk1',
     format_command: 'mkfs.ext4',
     fs_check_command: 'dumpe2fs',
     ebs: {
-        size: 32,
+        size: 32,  # GB
         delete_on_termination: true,
         type: 'gp2'
     }

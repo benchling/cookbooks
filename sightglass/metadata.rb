@@ -6,5 +6,6 @@ description      'Installs/Configures sightglass'
 long_description 'Installs/Configures sightglass'
 version          '0.1.0'
 
-depends 'java'
+depends 'java', '~> 1.31.0'
+depends 'nginx', '~> 2.7.4'
 depends 'elasticsearch', '~> 0.3.13'

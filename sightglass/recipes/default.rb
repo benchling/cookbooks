@@ -8,10 +8,14 @@ include_recipe 'elasticsearch::aws'
 include_recipe 'opsworks_initial_setup::sysctl'
 
 # elasticsearch::monit recipe doesn't seem to play well with opsworks monit, just need template
+service 'monit' do
+    action :nothing
+end
+
 template File.join(node[:monit][:conf_dir], "elasticsearch.monitrc") do
-  source 'elasticsearch.monitrc.conf.erb'
-  mode 0600
-  owner 'root'
-  group 'root'
-  notifies :reload, 'service[monit]', :delayed
+    source 'elasticsearch.monitrc.conf.erb'
+    mode 0600
+    owner 'root'
+    group 'root'
+    notifies :reload, 'service[monit]', :delayed
 end

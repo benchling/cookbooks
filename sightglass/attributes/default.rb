@@ -8,6 +8,7 @@ default.elasticsearch['cloud']['aws']['region'] = node['opsworks']['instance']['
 default.elasticsearch['discovery']['type'] = 'ec2'
 default.elasticsearch['discovery']['ec2']['groups'] = 'ElasticSearchSG'
 default.elasticsearch['discovery']['zen']['minimum_master_nodes'] = 2
+default.elasticsearch['nginx']['allow_status'] = true
 
 # Names.
 default.elasticsearch['cluster']['name'] = 'es.' + node['opsworks']['stack']['name']

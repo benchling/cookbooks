@@ -6,4 +6,11 @@ include_recipe 'elasticsearch::aws'
 # include_recipe 'elasticsearch::ebs'
 # include_recipe 'elasticsearch::data'
 include_recipe 'opsworks_initial_setup::sysctl'
-include_recipe 'elasticsearch::monit'
+
+# elasticsearch::monit recipe doesn't seem to play well with opsworks monit, just need template
+template '/etc/monit/conf.d/elasticsearch.monitrc' do
+  source 'elasticsearch.monitrc.conf.erb'
+  mode 0440
+  owner 'root'
+  group 'root'
+end

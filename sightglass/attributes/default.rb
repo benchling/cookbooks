@@ -10,10 +10,9 @@ default.elasticsearch['discovery']['ec2']['groups'] = 'ElasticSearchSG'
 default.elasticsearch['discovery']['zen']['minimum_master_nodes'] = 2
 
 # NGINX proxy.
-default.elasticsearch['nginx'] = {
-    allow_status: true,
-    ssl: {}  # Empty ssl dict is workaround for buggy template that tries to access [:ssl][:cert_file]
-}
+default.elasticsearch['nginx']['allow_status'] = true
+# Empty ssl dict is workaround for buggy template that tries to access [:ssl][:cert_file]
+default.elasticsearch['nginx']['ssl'] = {}
 
 # Names.
 default.elasticsearch['cluster']['name'] = 'es.' + node['opsworks']['stack']['name']

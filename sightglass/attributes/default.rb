@@ -10,8 +10,6 @@ default.elasticsearch['discovery']['ec2']['groups'] = 'ElasticSearchSG'
 default.elasticsearch['discovery']['zen']['minimum_master_nodes'] = 2
 
 # NGINX proxy.
-default.nginx['version'] = '1.6.2'
-default.nginx['source']['checksum'] = 'd1b55031ae6e4bce37f8776b94d8b930'
 default.elasticsearch['nginx'] = {
     allow_status: true,
     ssl: {}  # Empty ssl dict is workaround for buggy template that tries to access [:ssl][:cert_file]

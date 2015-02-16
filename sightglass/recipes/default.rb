@@ -13,4 +13,5 @@ template File.join(node[:monit][:conf_dir], "elasticsearch.monitrc") do
   mode 0600
   owner 'root'
   group 'root'
+  notifies :reload, 'service[monit]', :delayed
 end

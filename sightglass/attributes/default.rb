@@ -14,7 +14,6 @@ default.elasticsearch['nginx']['allow_status'] = true
 default.elasticsearch['cluster']['name'] = 'es.' + node['opsworks']['stack']['name']
 default.elasticsearch['node']['name'] = node['opsworks']['instance']['hostname']
 
-
 # Storage.
 default.elasticsearch['path']['data'] = '/vol/es'  # Must match layer settings.
 

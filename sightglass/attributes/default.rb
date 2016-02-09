@@ -1,7 +1,7 @@
 # Versions.
 default.java['jdk_version'] = 7
-default.elasticsearch['version'] = '1.4.3'
-default.elasticsearch['plugins']['elasticsearch/elasticsearch-cloud-aws']['version'] = '2.4.1'
+default.elasticsearch['version'] = '1.7.5'
+default.elasticsearch['plugins']['elasticsearch/elasticsearch-cloud-aws']['version'] = '2.7.1'
 
 # Cluster configuration.
 default.elasticsearch['cloud']['aws']['region'] = node['opsworks']['instance']['region']
@@ -34,4 +34,4 @@ default.elasticsearch['plugins']['royrusso/elasticsearch-HQ'] = {}
 default.elasticsearch['plugins']['lmenezes/elasticsearch-kopf'] = {}
 
 # Attachment plugin.
-default.elasticsearch['plugins']['elasticsearch/elasticsearch-mapper-attachments']['version'] = '2.4.3'
+default.elasticsearch['plugins']['elasticsearch/elasticsearch-mapper-attachments']['version'] = '2.7.1'

@@ -9,6 +9,13 @@ include_recipe 'elasticsearch::plugins'
 
 # Copy our own groovy scripts.
 # This should ideally use recipe variables for paths, owner, and group.
+directory '/usr/local/elasticsearch/config/scripts' do
+  owner 'elasticsearch'
+  group 'elasticsearch'
+  mode '0644'
+  action :create
+  recursive true
+end
 cookbook_file '/usr/local/elasticsearch/config/scripts/bases_regex.groovy' do
   source 'bases_regex.groovy'
   owner 'elasticsearch'

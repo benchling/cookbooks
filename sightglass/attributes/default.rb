@@ -35,3 +35,6 @@ default.elasticsearch['plugins']['lmenezes/elasticsearch-kopf']['version'] = 'v1
 
 # Attachment plugin.
 default.elasticsearch['plugins']['elasticsearch/elasticsearch-mapper-attachments']['version'] = '2.7.1'
+
+# Enable groovy scripting.
+default.elasticsearch['custom_config']['script.engine.groovy.inline.search'] = true

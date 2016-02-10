@@ -17,8 +17,8 @@ directory '/usr/local/etc/elasticsearch/scripts' do
   recursive true
 end
 
-cookbook_file '/usr/local/etc/elasticsearch/scripts/bases_regex.groovy' do
-  source 'bases_regex.groovy'
+cookbook_file '/usr/local/etc/elasticsearch/scripts/source_regex.groovy' do
+  source 'source_regex.groovy'
   owner 'elasticsearch'
   group 'elasticsearch'
   mode '0644'

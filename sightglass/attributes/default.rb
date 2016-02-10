@@ -31,7 +31,7 @@ default.elasticsearch['allocated_memory'] = allocated_memory
 # Monitoring plugins.
 default.elasticsearch['plugins']['lukas-vlcek/bigdesk'] = {}
 default.elasticsearch['plugins']['royrusso/elasticsearch-HQ'] = {}
-default.elasticsearch['plugins']['lmenezes/elasticsearch-kopf']['version'] = '1.6.1'
+default.elasticsearch['plugins']['lmenezes/elasticsearch-kopf']['version'] = 'v1.6.1'
 
 # Attachment plugin.
 default.elasticsearch['plugins']['elasticsearch/elasticsearch-mapper-attachments']['version'] = '2.7.1'

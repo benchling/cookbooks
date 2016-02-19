@@ -1,0 +1,5 @@
+{
+  "project_id" : "cookbooks",
+  "conduit_uri" : "https://phab.benchling.com/",
+  "arc.land.onto.default" : "master"
+}

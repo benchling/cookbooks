@@ -7,8 +7,9 @@ Parameters:
  */
 match = _source[source_field] =~ regex
 isMatch = match.find()
-if (!isMatch) {
-    return false
+// TODO(T4024): use match.start() and match.end() to remove false positives.
+if (!isMatch || required_field_length == null) {
+    return isMatch
 }
 
 sourceFieldLength = _source[source_field].size()
@@ -16,10 +17,4 @@ sourceFieldLength = _source[source_field].size()
 if (_source.circular) {
     sourceFieldLength /= 2
 }
-
-if ((match.end() - match.start()) > sourceFieldLength) {
-    // If the match exceeds our field length, then this is a false positive on circular sequences.
-    return false
-}
-
-return required_field_length == null || sourceFieldLength == required_field_length
+return sourceFieldLength == required_field_length

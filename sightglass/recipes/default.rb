@@ -24,3 +24,11 @@ cookbook_file '/usr/local/etc/elasticsearch/scripts/source_regex.groovy' do
   mode '0644'
   action :create
 end
+
+cookbook_file '/usr/local/etc/elasticsearch/scripts/modified_time.groovy' do
+  source 'modified_time.groovy'
+  owner 'elasticsearch'
+  group 'elasticsearch'
+  mode '0644'
+  action :create
+end

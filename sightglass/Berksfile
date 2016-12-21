@@ -2,5 +2,6 @@ source 'https://supermarket.chef.io'
 
 metadata
 
+cookbook 'ark', '= 1.2.0'
 cookbook 'build-essential', '= 3.2.0'
 cookbook 'ohai', '= 3.0.1'

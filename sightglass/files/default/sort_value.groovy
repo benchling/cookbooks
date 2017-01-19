@@ -1,6 +1,6 @@
 def value = null
 
-if (sort_field.contains('.')) {
+if (!sort_field.contains('.')) {
   // For top-level fields, use the value from _source.
   // Using doc[sort_field] results in a faster search since _source is not loaded into memory,
   // but unfortunately does not work for analyzed fields.

@@ -32,3 +32,11 @@ cookbook_file '/usr/local/etc/elasticsearch/scripts/modified_time.groovy' do
   mode '0644'
   action :create
 end
+
+cookbook_file '/usr/local/etc/elasticsearch/scripts/sort_value.groovy' do
+  source 'sort_value.groovy'
+  owner 'elasticsearch'
+  group 'elasticsearch'
+  mode '0644'
+  action :create
+end

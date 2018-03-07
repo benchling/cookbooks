@@ -5,3 +5,4 @@ metadata
 cookbook 'ark', '= 1.2.0'
 cookbook 'build-essential', '= 3.2.0'
 cookbook 'ohai', '= 3.0.1'
+cookbook 'windows', '= 2.0.2'

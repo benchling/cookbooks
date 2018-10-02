@@ -7,6 +7,9 @@ include_recipe 'elasticsearch'
 #include_recipe 'elasticsearch::proxy'
 #include_recipe 'elasticsearch::plugins'
 
+# https://docs.aws.amazon.com/opsworks/latest/userguide/data-bag-json-stack.html
+stack = search(:aws_opsworks_stack).first
+
 elasticsearch_user 'elasticsearch'
 elasticsearch_install 'elasticsearch' do
   version '2.3.5'
@@ -15,8 +18,8 @@ elasticsearch_configure 'elasticsearch' do
   path_data package: '/vol/es'  # Must match opsworks layer settings
   allocated_memory "#{(node.memory.total.to_i * 0.6 ).floor / 1024}m"
   configuration(
-    'cluster.name' => 'es.' + node['opsworks']['stack']['name'],
-    'node.name' => node['opsworks']['instance']['hostname'],
+    'cluster.name' => 'es.' + stack['name'],
+    'node.name' => node['hostname'],  # https://docs.chef.io/attributes.html#automatic-ohai
   )
 end
 elasticsearch_service 'elasticsearch'

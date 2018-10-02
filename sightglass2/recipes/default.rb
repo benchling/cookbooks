@@ -12,7 +12,7 @@ elasticsearch_install 'elasticsearch' do
   version '2.3.5'
 end
 elasticsearch_configure 'elasticsearch' do
-  path_data '/vol/es'  # Must match opsworks layer settings
+  path_data package: '/vol/es'  # Must match opsworks layer settings
   allocated_memory "#{(node.memory.total.to_i * 0.6 ).floor / 1024}m"
   configuration(
     'cluster.name' => 'es.' + node['opsworks']['stack']['name'],

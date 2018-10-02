@@ -1,10 +1,8 @@
 # Versions
 default.java['jdk_version'] = 8
 default.elasticsearch['version'] = '2.3.5'
-default.elasticsearch['plugins']['elasticsearch/elasticsearch-cloud-aws']['version'] = '2.7.1'
 
 # Cluster configuration
-default.elasticsearch['cloud']['aws']['region'] = node['opsworks']['instance']['region']
 default.elasticsearch['discovery']['type'] = 'ec2'
 default.elasticsearch['discovery']['ec2']['groups'] = 'ElasticSearchSG'
 default.elasticsearch['discovery']['zen']['minimum_master_nodes'] = 2

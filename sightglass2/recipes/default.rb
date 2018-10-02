@@ -7,6 +7,10 @@ include_recipe 'opsworks_initial_setup::sysctl'
 include_recipe 'elasticsearch::proxy'
 include_recipe 'elasticsearch::plugins'
 
+elasticsearch_plugin 'cloud-aws' do
+  action :install
+end
+
 # Copy our own groovy scripts.
 # This should ideally use recipe variables for paths, owner, and group.
 directory '/usr/local/etc/elasticsearch/scripts' do

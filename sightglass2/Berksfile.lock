@@ -1,0 +1,34 @@
+DEPENDENCIES
+  elasticsearch (~> 2.5.0)
+  java (~> 2.2.1)
+  sightglass
+    path: .
+    metadata: true
+
+GRAPH
+  apt (7.1.0)
+  ark (4.0.0)
+    build-essential (>= 0.0.0)
+    seven_zip (>= 0.0.0)
+  build-essential (8.2.1)
+    mingw (>= 1.1)
+    seven_zip (>= 0.0.0)
+  chef-sugar (4.1.0)
+  elasticsearch (2.5.0)
+    apt (>= 0.0.0)
+    ark (>= 0.0.0)
+    chef-sugar (>= 0.0.0)
+    yum (>= 0.0.0)
+  homebrew (5.0.7)
+  java (2.2.1)
+    homebrew (>= 0.0.0)
+    windows (>= 0.0.0)
+  mingw (2.1.0)
+    seven_zip (>= 0.0.0)
+  seven_zip (3.0.0)
+    windows (>= 0.0.0)
+  sightglass (0.1.0)
+    elasticsearch (~> 2.5.0)
+    java (~> 2.2.1)
+  windows (5.1.1)
+  yum (5.1.0)

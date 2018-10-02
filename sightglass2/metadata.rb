@@ -1,4 +1,4 @@
-name             'sightglass'
+name             'sightglass2'
 maintainer       'Raymond Lu'
 maintainer_email 'raylu@benchling.com'
 license          'all_rights'

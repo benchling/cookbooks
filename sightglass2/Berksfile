@@ -1,0 +1,6 @@
+source 'https://supermarket.chef.io'
+
+metadata
+
+cookbook 'java', '~> 2.2.1'
+cookbook 'elasticsearch', '~> 2.5.0'

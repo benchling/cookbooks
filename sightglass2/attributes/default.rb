@@ -1,6 +1,4 @@
-# Versions
 default.java['jdk_version'] = 8
-default.elasticsearch['version'] = '2.3.5'
 
 # Cluster configuration
 default.elasticsearch['discovery']['type'] = 'ec2'
@@ -13,18 +11,8 @@ default.elasticsearch['nginx']['client_max_body_size'] = '128M'
 # Empty ssl dict is workaround for buggy template that tries to access [:ssl][:cert_file]
 default.elasticsearch['nginx']['ssl'] = {}
 
-# Names
-default.elasticsearch['cluster']['name'] = 'es.' + node['opsworks']['stack']['name']
-default.elasticsearch['node']['name'] = node['opsworks']['instance']['hostname']
-
-# Storage
-default.elasticsearch['path']['data'] = '/vol/es'  # Must match layer settings.
-
 # System settings
 default.opsworks_initial_setup['sysctl']['vm.max_map_count'] = 262144
-# elasticsearch recipe already sets memory to 60%, but we do this explicitly anyways
-allocated_memory = "#{(node.memory.total.to_i * 0.6 ).floor / 1024}m"
-default.elasticsearch['allocated_memory'] = allocated_memory
 
 # Monitoring plugins
 default.elasticsearch['plugins']['lukas-vlcek/bigdesk'] = {}

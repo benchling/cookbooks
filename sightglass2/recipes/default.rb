@@ -1,4 +1,4 @@
-# Sets up elasticsearch for sightglass.
+# Sets up elasticsearch for sightglass
 
 include_recipe 'java'
 include_recipe 'elasticsearch'
@@ -7,12 +7,25 @@ include_recipe 'opsworks_initial_setup::sysctl'
 include_recipe 'elasticsearch::proxy'
 include_recipe 'elasticsearch::plugins'
 
+elasticsearch_user 'elasticsearch'
+elasticsearch_install 'elasticsearch' do
+  version '2.3.5'
+end
+elasticsearch_configure 'elasticsearch' do
+  path_data '/vol/es'  # Must match opsworks layer settings
+  allocated_memory "#{(node.memory.total.to_i * 0.6 ).floor / 1024}m"
+  configuration(
+    'cluster.name' => 'es.' + node['opsworks']['stack']['name'],
+    'node.name' => node['opsworks']['instance']['hostname'],
+  )
+end
+elasticsearch_service 'elasticsearch'
+
 elasticsearch_plugin 'cloud-aws' do
   action :install
 end
 
 # Copy our own groovy scripts.
-# This should ideally use recipe variables for paths, owner, and group.
 directory '/usr/local/etc/elasticsearch/scripts' do
   owner 'elasticsearch'
   group 'elasticsearch'

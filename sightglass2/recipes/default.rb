@@ -2,10 +2,10 @@
 
 include_recipe 'java'
 include_recipe 'elasticsearch'
-include_recipe 'elasticsearch::aws'
-include_recipe 'opsworks_initial_setup::sysctl'
-include_recipe 'elasticsearch::proxy'
-include_recipe 'elasticsearch::plugins'
+#include_recipe 'elasticsearch::aws'
+#include_recipe 'opsworks_initial_setup::sysctl'
+#include_recipe 'elasticsearch::proxy'
+#include_recipe 'elasticsearch::plugins'
 
 elasticsearch_user 'elasticsearch'
 elasticsearch_install 'elasticsearch' do

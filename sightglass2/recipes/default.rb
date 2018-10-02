@@ -69,6 +69,7 @@ cookbook_file '/etc/sudoers.d/20-foxpass' do
   action :create
 end
 
+=begin
 foxpass_secrets = data_bag_item("sightglass", "foxpass")
 
 bash 'install_foxpass' do
@@ -84,3 +85,4 @@ bash 'install_foxpass' do
       EOH
   not_if { ::File.exists?('/opt/chef-foxpass/done') }
 end
+=end

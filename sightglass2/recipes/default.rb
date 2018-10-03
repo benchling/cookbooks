@@ -29,15 +29,7 @@ elasticsearch_plugin 'cloud-aws' do
 end
 
 # Copy our own groovy scripts.
-directory '/usr/local/etc/elasticsearch/scripts' do
-  owner 'elasticsearch'
-  group 'elasticsearch'
-  mode '0755'
-  action :create
-  recursive true
-end
-
-cookbook_file '/usr/local/etc/elasticsearch/scripts/source_regex.groovy' do
+cookbook_file '/etc/elasticsearch/scripts/source_regex.groovy' do
   source 'source_regex.groovy'
   owner 'elasticsearch'
   group 'elasticsearch'
@@ -45,7 +37,7 @@ cookbook_file '/usr/local/etc/elasticsearch/scripts/source_regex.groovy' do
   action :create
 end
 
-cookbook_file '/usr/local/etc/elasticsearch/scripts/modified_time.groovy' do
+cookbook_file '/etc/elasticsearch/scripts/modified_time.groovy' do
   source 'modified_time.groovy'
   owner 'elasticsearch'
   group 'elasticsearch'
@@ -53,7 +45,7 @@ cookbook_file '/usr/local/etc/elasticsearch/scripts/modified_time.groovy' do
   action :create
 end
 
-cookbook_file '/usr/local/etc/elasticsearch/scripts/sort_value.groovy' do
+cookbook_file '/etc/elasticsearch/scripts/sort_value.groovy' do
   source 'sort_value.groovy'
   owner 'elasticsearch'
   group 'elasticsearch'

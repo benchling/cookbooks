@@ -34,9 +34,17 @@ elasticsearch_configure 'elasticsearch' do
 	'discovery.zen.minimum_master_nodes' => 2,
   )
 end
-elasticsearch_service 'elasticsearch'
 elasticsearch_plugin 'cloud-aws' do
   action :install
+end
+# This creates a sysv sh init script in /etc/init.d.
+elasticsearch_service 'elasticsearch'
+
+# Ubuntu 16.04 comes with systemd-sysv installed
+# so it creates a systemd unit that runs the sh script created by elasticsearch_service.
+# The unit is disabled, so we just need to flip it on.
+systemd_unit 'elasticsearch.service' do
+  action [:enable, :start]
 end
 
 # Copy our own groovy scripts.

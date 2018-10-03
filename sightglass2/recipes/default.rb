@@ -29,6 +29,9 @@ elasticsearch_configure 'elasticsearch' do
   configuration(
     'cluster.name' => 'es.' + stack['name'],
     'node.name' => node['hostname'],  # https://docs.chef.io/attributes.html#automatic-ohai
+	'discovery.type' => 'ec2',
+	'discovery.ec2.groups' => 'ElasticSearchSG',
+	'discovery.zen.minimum_master_nodes' => 2,
   )
 end
 elasticsearch_service 'elasticsearch'

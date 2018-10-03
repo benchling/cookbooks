@@ -1,10 +1,5 @@
 default.java['jdk_version'] = '8'
 
-# Cluster configuration
-default.elasticsearch['discovery']['type'] = 'ec2'
-default.elasticsearch['discovery']['ec2']['groups'] = 'ElasticSearchSG'
-default.elasticsearch['discovery']['zen']['minimum_master_nodes'] = 2
-
 # NGINX proxy
 default.elasticsearch['nginx']['allow_status'] = true
 default.elasticsearch['nginx']['client_max_body_size'] = '128M'

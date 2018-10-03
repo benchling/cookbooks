@@ -1,7 +1,7 @@
 # Sets up elasticsearch for sightglass
 
 include_recipe 'java'
-include_recipe 'elasticsearch'
+#include_recipe 'elasticsearch'
 #include_recipe 'elasticsearch::aws'
 #include_recipe 'opsworks_initial_setup::sysctl'
 #include_recipe 'elasticsearch::proxy'
@@ -10,6 +10,7 @@ include_recipe 'elasticsearch'
 # https://docs.aws.amazon.com/opsworks/latest/userguide/data-bag-json-stack.html
 stack = search(:aws_opsworks_stack).first
 
+# We're on the 2.x.x branch of the cookbook: https://github.com/elastic/cookbook-elasticsearch/tree/2.x.x
 elasticsearch_user 'elasticsearch'
 elasticsearch_install 'elasticsearch' do
   version '2.3.5'
@@ -23,7 +24,6 @@ elasticsearch_configure 'elasticsearch' do
   )
 end
 elasticsearch_service 'elasticsearch'
-
 elasticsearch_plugin 'cloud-aws' do
   action :install
 end

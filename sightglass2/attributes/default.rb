@@ -11,9 +11,6 @@ default.elasticsearch['nginx']['client_max_body_size'] = '128M'
 # Empty ssl dict is workaround for buggy template that tries to access [:ssl][:cert_file]
 default.elasticsearch['nginx']['ssl'] = {}
 
-# System settings
-default.opsworks_initial_setup['sysctl']['vm.max_map_count'] = 262144
-
 # Monitoring plugins
 default.elasticsearch['plugins']['lukas-vlcek/bigdesk'] = {}
 default.elasticsearch['plugins']['royrusso/elasticsearch-HQ'] = {}

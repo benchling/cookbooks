@@ -7,6 +7,15 @@ include_recipe 'java'
 #include_recipe 'elasticsearch::proxy'
 #include_recipe 'elasticsearch::plugins'
 
+package %w(htop tree)
+package 'command-not-found' do
+  action :purge
+end
+
+sysctl 'vm.map_max_count' do
+  value 262144
+end
+
 # https://docs.aws.amazon.com/opsworks/latest/userguide/data-bag-json-stack.html
 stack = search(:aws_opsworks_stack).first
 

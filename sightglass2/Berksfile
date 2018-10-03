@@ -4,3 +4,4 @@ metadata
 
 cookbook 'java', '~> 2.2.1'
 cookbook 'elasticsearch', '~> 2.5.0'
+cookbook 'sysctl', '~> 1.0.5'

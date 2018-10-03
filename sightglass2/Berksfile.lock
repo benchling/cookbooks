@@ -1,9 +1,10 @@
 DEPENDENCIES
   elasticsearch (~> 2.5.0)
   java (~> 2.2.1)
-  sightglass
+  sightglass2
     path: .
     metadata: true
+  sysctl (~> 1.0.5)
 
 GRAPH
   apt (7.1.0)
@@ -25,10 +26,13 @@ GRAPH
     windows (>= 0.0.0)
   mingw (2.1.0)
     seven_zip (>= 0.0.0)
+  ohai (5.2.5)
   seven_zip (3.0.0)
     windows (>= 0.0.0)
-  sightglass (0.1.0)
+  sightglass2 (0.1.0)
     elasticsearch (~> 2.5.0)
     java (~> 2.2.1)
+  sysctl (1.0.5)
+    ohai (>= 5.0)
   windows (5.1.1)
   yum (5.1.0)

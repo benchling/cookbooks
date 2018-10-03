@@ -3,7 +3,6 @@
 include_recipe 'java'
 #include_recipe 'elasticsearch'
 #include_recipe 'elasticsearch::aws'
-#include_recipe 'opsworks_initial_setup::sysctl'
 #include_recipe 'elasticsearch::proxy'
 #include_recipe 'elasticsearch::plugins'
 
@@ -12,7 +11,7 @@ package 'command-not-found' do
   action :purge
 end
 
-sysctl 'vm.map_max_count' do
+sysctl_param 'vm.max_map_count' do
   value 262144
 end
 

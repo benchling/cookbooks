@@ -8,3 +8,4 @@ version          '0.1.0'
 
 depends 'java', '~> 2.2.1'
 depends 'elasticsearch', '~> 2.5.0'
+depends 'sysctl', '~> 1.0.5'

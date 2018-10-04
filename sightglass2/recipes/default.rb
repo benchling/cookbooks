@@ -29,9 +29,12 @@ elasticsearch_configure 'elasticsearch' do
   configuration(
     'cluster.name' => 'es.' + stack['name'],
     'node.name' => node['hostname'],  # https://docs.chef.io/attributes.html#automatic-ohai
-	'discovery.type' => 'ec2',
-	'discovery.ec2.groups' => 'ElasticSearchSG',
-	'discovery.zen.minimum_master_nodes' => 2,
+    'network.host' => '_site_',  # https://www.elastic.co/guide/en/elasticsearch/reference/2.3/modules-network.html#network-interface-values
+    'cloud.aws.region' => stack['region'],
+    'cloud.node.auto_attributes' => true,
+    'discovery.type' => 'ec2',
+    'discovery.ec2.groups' => node['ec2']['security_groups'][0], # https://github.com/chef/ohai/blob/v8.22.1/lib/ohai/mixin/ec2_metadata.rb#L48
+    'discovery.zen.minimum_master_nodes' => 2,
   )
 end
 elasticsearch_plugin 'cloud-aws' do
